@@ -29,6 +29,8 @@ WORKDIR /app
 
 ENV WEB_DOCUMENT_ROOT /app/public
 
+RUN useradd -G www-data,root -u 1000 application
+
 COPY --chown=application:application composer.* ./
 
 COPY --chown=application:application database/ database/
